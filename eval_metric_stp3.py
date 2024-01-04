@@ -59,7 +59,7 @@ def main(local_rank, args):
     log_file = osp.join(args.work_dir, f'eval_stp3_{cfg.start_frame}_{cfg.mid_frame}_{cfg.end_frame}_{timestamp}.log')
     logger = MMLogger('genocc', log_file=log_file)
     MMLogger._instance_dict['genocc'] = logger
-    logger.info(f'Config:\n{cfg.pretty_text}')
+    # logger.info(f'Config:\n{cfg.pretty_text}')
 
     # build model
     import model

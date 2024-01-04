@@ -4,7 +4,7 @@ max_epochs = 200
 warmup_iters = 50
 return_len_ = 15
 return_len_train = 15
-load_from = 'out/vqvae/epoch_2.pth'
+load_from = 'out/vqvae/epoch_200.pth'
 port = 25096
 revise_ckpt = 3
 eval_every_epochs = 1
@@ -26,7 +26,7 @@ freeze_dict = dict(
 optimizer = dict(
     optimizer=dict(
         type='AdamW',
-        lr=1e-3,
+        lr=5e-4,
         weight_decay=0.01,
     ),
 )

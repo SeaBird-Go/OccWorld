@@ -3,7 +3,7 @@ import torch, numpy as np
 import torch.distributed as dist
 from copy import deepcopy
 
-import mmcv
+# import mmcv
 from mmengine import Config
 from mmengine.runner import set_random_seed
 from mmengine.optim import build_optim_wrapper
@@ -59,7 +59,7 @@ def main(local_rank, args):
     log_file = osp.join(args.work_dir, f'{timestamp}.log')
     logger = MMLogger('genocc', log_file=log_file)
     MMLogger._instance_dict['genocc'] = logger
-    logger.info(f'Config:\n{cfg.pretty_text}')
+    # logger.info(f'Config:\n{cfg.pretty_text}')
 
     # build model
     import model
@@ -338,6 +338,8 @@ def main(local_rank, args):
         #logger.info(f'PlanRegLoss is {plan_loss/len(val_dataset_loader)}')
         logger.info(f'Current val iou is {val_iou} while the best val iou is {best_val_iou}')
         logger.info(f'Current val miou is {val_miou} while the best val miou is {best_val_miou}')
+        logger.info(f'avg val iou is {np.mean(val_iou)}')
+        logger.info(f'avg val miou is {np.mean(val_miou)}')
         torch.cuda.empty_cache()
 
 
